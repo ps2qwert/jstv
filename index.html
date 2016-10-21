@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn" click>
+<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body style="background:url(images/bg.jpg);background-size:100% 100%">
+<div class="wrap">
+	<div class="zi" id="zi">
+	</div>
+</div>
+
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/round.js"></script>
+
+
+<script>
+function makeArr(){
+     var arr1 = []
+     for (var i = 0; i < 357; i++) {
+          arr1.push(i);
+     };
+     return arr1
+}
+var str = "";
+var headNum = 0;
+var arrNew = makeArr();
+
+
+
+function row(){                                 //构造logo
+	$.each(arr.round, function(i, value) {
+			newItem = '<img src="images/yuan.png" class="'+value.size+"  "+'s1" style="left:'+value.x+'px'+';top:'+value.y+'px'+' ">';
+			str += newItem;
+	});
+	return str	
+}
+
+function init(){                               //输出到页面
+	var html = row();
+	$(".wrap").html(html)	
+}
+
+
+function run(){			//签到成功
+	var headImg = "images/head.jpg";
+	$(".s1").eq(headNum).attr("src",headImg).addClass("animated pulse infinite");
+	if (headNum>400) {
+		clearInterval(go)
+	};
+	headNum ++;
+}
+
+$(function(){
+
+	init();
+	var go =setInterval("run()",500 )
+
+})
+</script>
+
+</body>
+</html>

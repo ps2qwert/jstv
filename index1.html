@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body >
+
+<label>x:</label><input type="text" class = "x">
+<lable>y:</lable><input type="text" class = "y">
+
+<select class="size">
+	<option>big</option>
+	<option>mid</option>
+	<option>small</option>
+</select>
+
+<button class="btn">确定</button>
+<button class="del">撤销</button>
+<div class="content">
+</div>
+
+<div class="wrap" style="position: absolute;left: 308px;top: 46px;">
+</div>
+<script src="js/jquery.min.js"></script>
+
+
+
+<script>
+$(".btn").click(function(){
+	var x = $(".x").val();
+	var y = $(".y").val();
+	var size = $(".size").val();
+	var content =  '<p class="c1">'+'{'+ 'x:' +x+','+'y:'+y+','+'size:'+'"'+size+'"'  +'}'+','+'</p>';
+	var img = '<img src="images/yuan.png" class="'+size+"  "+'s1" style="left:'+x+'px'+';top:'+y+'px'+' ">';
+	$(".wrap").append(img)
+	$(".content").append(content);
+})
+
+$(".del").click(function(){
+	var imgL = $(".s1").length;
+
+	$(".s1:last").remove();
+	$(".c1:last").remove();
+})
+</script>
+
+</body>
+</html>

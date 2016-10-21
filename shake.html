@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html">
+<head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="bg">
+
+<div class="shake_wrap">
+	<div class="tit">
+		<img src="images/shake-1.png">
+	</div>
+	
+	<div class="shake">
+		<img src="images/shake.png">
+		<div class="shake_s animated infinite shake">
+			<img src="images/shake_s.png">
+		</div>
+	</div>
+
+	<div class="go_btn">
+		红包快来  一起精彩
+	</div>
+</div>
+
+<div class="hongbao_wrap">
+	<div class="hb_bg animated">
+		<img src="images/hongbao_bg.png">
+	</div>
+	<div class="hb_btn animated">
+		<img src="images/hongbao.png">
+	</div>
+	<div class="blessing">
+		恭喜你获得现金红包一个
+	</div>
+</div>
+
+<div class="rgba08">
+	<div class="success">
+		<i>
+		</i>
+		领取成功
+	</div>
+</div>
+
+
+<!-- 抽红包加载动画 -->
+<div class="spinner">
+  <div class="spinner-container container1">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container2">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+  <div class="spinner-container container3">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+  </div>
+</div>
+
+
+
+<audio src="video/5018.wav" id="shake_video"></audio>
+<audio src="video/5012.wav" id="success_video"></audio>
+<script src="js/zepto.min.js"></script>
+<script src="js/shake.js"></script>
+<script > 
+window.onload = function() {
+
+	var shake1 = new Shake(2000, function(obj) {
+
+		$("#shake_video")[0].play();		//摇动音效
+		$(".hongbao_wrap").show();		//领取页面显示
+		$(".hb_bg").addClass("zoomIn");	//添加动画效果
+		$(".hb_btn").addClass("zoomInDown");
+		$(".shake_wrap").hide();
+
+		$("#success_video")[0].play();   //红包获得音效
+	});
+	shake1.init();
+}; 
+
+$(".hb_btn").click(function(){
+	$(".rgba08").show();
+})
+</script>
+
+
+
+
+</body>
+</html>
